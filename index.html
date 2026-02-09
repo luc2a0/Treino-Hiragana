@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Treino de Hiragana</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <main class="card">
+    <header class="top">
+      <h1>Treino de Hiragana</h1>
+      <p class="sub">10 perguntas. Digite a leitura em <b>romaji</b> (ex: shi, tsu, kya).</p>
+    </header>
+
+    <section id="screenStart" class="screen">
+      <button id="btnStart" class="btn">Começar</button>
+      <p class="hint">Dica: tanto faz maiúscula/minúscula. Espaços extras são ignorados.</p>
+    </section>
+
+    <section id="screenQuiz" class="screen hidden" aria-live="polite">
+      <div class="status">
+        <div><span id="qIndex">1</span>/10</div>
+        <div>Acertos: <span id="scoreNow">0</span></div>
+      </div>
+
+      <div class="prompt">
+        <div class="kana" id="kanaChar">あ</div>
+        <div class="ask">Escreva a leitura em romaji:</div>
+      </div>
+
+      <form id="formAnswer" class="answer">
+        <input
+          id="inputRomaji"
+          type="text"
+          inputmode="latin"
+          autocomplete="off"
+          spellcheck="false"
+          placeholder="ex: a"
+          aria-label="Resposta em romaji"
+        />
+        <button class="btn" type="submit">Responder</button>
+      </form>
+
+      <div id="feedback" class="feedback" role="status"></div>
+
+      <div class="controls">
+        <button id="btnSkip" class="btn ghost" type="button">Pular</button>
+      </div>
+    </section>
+
+    <section id="screenEnd" class="screen hidden">
+      <h2>Fim do treino 🎌</h2>
+      <p class="result">Seu score: <b><span id="finalScore">0</span>/10</b></p>
+
+      <details class="review">
+        <summary>Ver gabarito das 10 questões</summary>
+        <ol id="reviewList"></ol>
+      </details>
+
+      <button id="btnRestart" class="btn">Treinar de novo</button>
+    </section>
+
+    <footer class="footer">
+      <small>Hiragana básico + combinações (yōon) incluídas. Sem dakuten/handakuten por enquanto.</small>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
